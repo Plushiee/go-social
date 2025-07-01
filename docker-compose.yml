@@ -4,9 +4,9 @@ services:
     container_name: postgres_db
     restart: always
     environment:
-      POSTGRES_USER: social
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: adminpassword
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: adminPassword
+      POSTGRES_DB: social_db
     volumes:
       - db_data:/var/lib/postgresql/data
       # - ./scripts:/docker-entrypoint-initdb.d
