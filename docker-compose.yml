@@ -1,0 +1,26 @@
+services: 
+  db:
+    image: postgres
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: social
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: adminpassword
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      # - ./scripts:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+volumes:
+  db_data:
